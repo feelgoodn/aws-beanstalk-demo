@@ -12,9 +12,7 @@ phases:
   build:
     commands:
       - echo "Entered build phase"
-      - mvn clean prepare-package war:exploded
-      - echo "Listing contents of target directory"
-      - ls -al target
+      - mvn clean prepare-package war:exploded -X
   post_build:
     commands:
       - echo "Entered the post-build phase"
@@ -25,3 +23,4 @@ phases:
 artifacts:
   files:
     - deploy/**/*
+  discard-paths: yes
